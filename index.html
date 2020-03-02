@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+
+                           <button id="first-minus-button" class="btn btn-default"><i class="fas fa-minus "></i></button>
+
+                           <input id="first-input" type="text" class="form-control text-center" value="1" >
+
+                           <button id="first-plus-button" class="btn btn-default"><i class="fas fa-plus "></i></button>
+
+                        </div>
+                        <h5>$ <span id="iphone">1219</span> </h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="second-minus-button" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="second-input" type="text" class="form-control text-center" value="1">
+                           <button id="second-plus-button" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$ <span id="case">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row last-row ">
+
+                     <div class="col-md-8">
+                        <h5> <span id="">Subtotal:</span>  </h5>
+                        <h5>Tax:</h5>
+                        <h5><span id="total">Total:</span></h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$  <span id="subtotal">1,278</span> </h5>
+                        <h5>$0</h5>
+                        <h5>$1,278</h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+
+   <script>
+      //first plus button
+      const firstPlus=document.getElementById("first-plus-button");
+      firstPlus.addEventListener("click",function(){
+         const plusButton=document.getElementById("first-input").value;
+         const firstPlusButton=parseFloat(plusButton);
+         const addplus =firstPlusButton + 1;
+         document.getElementById("first-input").value=addplus;
+         
+         const phonePrice=document.getElementById("iphone").innerText;
+         const phonepricenum=parseFloat(phonePrice);
+
+         const plusphoneprice=addplus * 1219;
+         document.getElementById("iphone").innerText=plusphoneprice;
+      })
+
+      //first minus button
+      const firstminus=document.getElementById("first-minus-button");
+      firstminus.addEventListener("click",function(){
+         const minusButton=document.getElementById("first-input").value;
+         const firstminusButton=parseFloat(minusButton);
+         const addminus =firstminusButton - 1;
+         document.getElementById("first-input").value=addminus;
+         
+         const mphonePrice=document.getElementById("iphone").innerText;
+         const mphonepricenum=parseFloat(mphonePrice);
+
+         const minusphoneprice=mphonepricenum-1219;
+         document.getElementById("iphone").innerText=minusphoneprice;
+
+      })
+      //second plus button 
+
+
+      const secondPlus=document.getElementById("second-plus-button");
+         secondPlus.addEventListener("click",function(){
+         const secondplusButton=document.getElementById("second-input").value;
+         const secondButton=parseFloat(secondplusButton);
+         const saddplus =secondButton + 1;
+         document.getElementById("second-input").value=saddplus;
+         
+         const casePrice=document.getElementById("case").innerText;
+         const casepricenum=parseFloat(casePrice);
+
+         const pluscaseprice=saddplus * 59;
+         document.getElementById("case").innerText=pluscaseprice;
+      })
+
+      //second minus button 
+
+      const secondminus=document.getElementById("second-minus-button");
+         secondminus.addEventListener("click",function(){
+         const secondminusButton=document.getElementById("second-input").value;
+         const secondmButton=parseFloat(secondminusButton);
+         const saddminus =secondmButton - 1;
+         document.getElementById("second-input").value=saddminus;
+         
+         const casePrice=document.getElementById("case").innerText;
+         const casepricenum=parseFloat(casePrice);
+
+         const minuscaseprice=casepricenum - 59;
+         document.getElementById("case").innerText=minuscaseprice;
+
+      })
+
+      //subtotal add
+      const sub = document.getElementById("subtotal").innerText;
+      const floatal = parseFloat(sub);
+      floatal=firstPlusButton*1219 +secondButton*59;
+      document.getElementById("subtotal")=floatal;
+
+
+      
+
+   </script>
+</body>
+
+</html>
